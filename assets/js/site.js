@@ -186,6 +186,16 @@
     });
   }
 
+  function initMobileNav(){
+    var toggle = document.getElementById('nav-toggle');
+    var nav = document.getElementById('site-nav');
+    if(!toggle || !nav) return;
+    toggle.addEventListener('click', function(){
+      var isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+
   // Ethical/sustainable: lazy-load images and add width/height if missing (best-effort)
   function enhanceImages(){
     document.querySelectorAll('img').forEach(function(img){
@@ -203,6 +213,7 @@
     initThemeToggle();
     enableCardTilt();
     ensureChatbot();
+    initMobileNav();
 
     enhanceImages();
   };

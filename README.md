@@ -28,7 +28,6 @@ No build step required — runs on GitHub Pages. Partials load client‑side via
 
 ## Features
 - Dark / Light themes: use the header toggle (light ↔ dark). Persisted in `localStorage`.
-- Snap scrolling: use the “Snap Scroll” button in the footer to toggle scroll-snap sections. Persisted in `localStorage`.
 - Accessibility: skip link, focus-visible styles, high-contrast modes, reduced-motion support, lazy-loading images.
 - Micro-interactions: subtle 3D tilt on cards.
 - Chatbot (demo): click the “Chat” floating button. This is a frontend-only demo on GitHub Pages. To make it live, connect the `callBackend` function in `assets/js/site.js` to a real API endpoint (e.g., OpenAI, Azure OpenAI, or any compatible service) and handle CORS.

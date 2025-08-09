@@ -60,10 +60,6 @@ html[data-theme="dark"]{
 html,body{height:100%}
 body{margin:0;font-family:'Plus Jakarta Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,Noto Sans,sans-serif;background:var(--bg);color:var(--muted);line-height:1.65}
 
-/* Optional scroll-snap mode */
-html[data-scroll="snap"] body{height:100%}
-html[data-scroll="snap"] main{scroll-snap-type:y proximity;overflow-y:auto;max-height:calc(100vh - 68px)}
-html[data-scroll="snap"] main > section{scroll-snap-align:start}
 
 /* Skip link */
 .skip-link{position:absolute;top:-40px;left:10px;background:var(--ink);color:#fff;padding:8px 12px;border-radius:10px;z-index:1000;transition:top .2s ease}

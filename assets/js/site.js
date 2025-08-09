@@ -186,27 +186,6 @@
     });
   }
 
-  // Scroll-snap experimental toggle
-  function applyScrollModeFromStorage(){
-    try{
-      var s = localStorage.getItem('scrollMode') || '';
-      if(s){ document.documentElement.setAttribute('data-scroll', s); }
-    }catch(e){}
-  }
-  function initScrollToggle(){
-    var btn = document.getElementById('toggle-scroll');
-    if(!btn) return;
-    btn.addEventListener('click', function(){
-      var html = document.documentElement;
-      var current = html.getAttribute('data-scroll');
-      var next = current === 'snap' ? '' : 'snap';
-      if(next){ html.setAttribute('data-scroll', next); } else { html.removeAttribute('data-scroll'); }
-      try{ if(next){ localStorage.setItem('scrollMode', next); } else { localStorage.removeItem('scrollMode'); } }catch(e){}
-    });
-  }
-
-
-
   // Ethical/sustainable: lazy-load images and add width/height if missing (best-effort)
   function enhanceImages(){
     document.querySelectorAll('img').forEach(function(img){
@@ -224,8 +203,6 @@
     initThemeToggle();
     enableCardTilt();
     ensureChatbot();
-    applyScrollModeFromStorage();
-    initScrollToggle();
 
     enhanceImages();
   };

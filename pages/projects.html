@@ -7,24 +7,16 @@
   <link rel="stylesheet" href="../assets/css/site.css" />
 </head>
 <body>
-  <header class="nav wrap">
-    <div class="logo"><span class="logo-dot"></span> Glenn Liza Varghese</div>
-    <nav>
-      <a href="../index.html">Home</a>
-      <a href="projects.html">Work</a>
-      <a href="ideas.html">Ideas</a>
-      <a href="thinking.html">Thinking Space</a>
-      <a href="about.html">About</a>
-      <a href="contact.html" class="btn">Contact</a>
-    </nav>
-  </header>
+  <div data-include="../partials/header.html"></div>
 
   <main class="wrap" style="padding:40px 0">
     <h1>Projects</h1>
     <div id="projects-list" class="grid"></div>
   </main>
-
+  <div data-include="../partials/footer.html"></div>
+  <script src="../assets/js/partials.js"></script>
   <script src="../assets/js/site.js"></script>
-  <script>loadCards("../data/projects.json","projects-list","../");</script>
+  <script src="../assets/js/cards.js"></script>
+  <script>loadCards('../data/projects.json','projects-list','../');</script>
 </body>
 </html>

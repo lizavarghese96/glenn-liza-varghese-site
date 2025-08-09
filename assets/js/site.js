@@ -1,28 +1,44 @@
-  <script>
-    // year
-    document.getElementById('year').textContent = new Date().getFullYear();
+(function(){
+  function setYear(){
+    var yearEl = document.getElementById('year');
+    if(yearEl){ yearEl.textContent = String(new Date().getFullYear()); }
+  }
 
-    // smooth scroll for same-page anchors
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const href = a.getAttribute('href');
-        if(href.length>1){
-          e.preventDefault();
-          const el = document.querySelector(href);
-          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  function enableSmoothScroll(){
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var href = a.getAttribute('href');
+        if(href && href.length > 1){
+          var el = document.querySelector(href);
+          if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
         }
       });
     });
+  }
 
-    // scroll reveal
-    const revealEls = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
+  function initReveal(){
+    var revealEls = document.querySelectorAll('.reveal');
+    if(revealEls.length === 0) return;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
         if(entry.isIntersecting){
           entry.target.classList.add('show');
           io.unobserve(entry.target);
         }
-      })
-    },{threshold:.12});
-    revealEls.forEach(el=>io.observe(el));
-  </script>
+      });
+    },{threshold:0.12});
+    revealEls.forEach(function(el){ io.observe(el); });
+  }
+
+  function prefixInternalLinks(){
+    if(!window.__partials) return;
+    window.__partials.rewriteBaseHrefs(document);
+  }
+
+  window.initSite = function(){
+    setYear();
+    prefixInternalLinks();
+    enableSmoothScroll();
+    initReveal();
+  };
+})();

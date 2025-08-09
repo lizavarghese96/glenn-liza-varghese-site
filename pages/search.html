@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Search — Glenn Liza Varghese</title>
+  <meta name="description" content="Search posts and projects">
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+  <div data-include="../partials/header.html"></div>
+  <main class="wrap" style="padding:40px 0">
+    <h1>Search</h1>
+    <div class="panel" style="margin:16px 0">
+      <input id="q" type="search" placeholder="Search posts and projects" aria-label="Search" style="width:100%;padding:12px;border-radius:12px;border:1px solid var(--line)">
+    </div>
+    <div id="search-results" class="grid"></div>
+  </main>
+  <div data-include="../partials/footer.html"></div>
+  <script src="../assets/js/partials.js"></script>
+  <script src="../assets/js/site.js"></script>
+  <script>
+  (function(){
+    const sources = [
+      {json:"../data/posts.json", prefix:"../"},
+      {json:"../data/projects.json", prefix:"../"}
+    ];
+    let index = [];
+    function normalize(s){ return (s||"").toLowerCase(); }
+    function toCard(item){
+      const tags = Array.isArray(item.tags) ? item.tags.join(' • ') : '';
+      return [
+        '<article class="card">',
+          tags ? ('<span class="tag">'+tags+'</span>') : '',
+          '<h3><a href="'+item.href+'">'+item.title+'</a></h3>',
+          item.summary ? ('<p>'+item.summary+'</p>') : '',
+          item.date ? ('<small>'+item.date+'</small>') : '',
+        '</article>'
+      ].join('');
+    }
+    function render(q){
+      const area = document.getElementById('search-results');
+      const query = normalize(q);
+      if(!query){ area.innerHTML = ''; return; }
+      const terms = query.split(/\s+/).filter(Boolean);
+      const matched = index.filter(it=>{
+        const hay = normalize([it.title,it.summary,(it.tags||[]).join(' ')].join(' '));
+        return terms.every(t=>hay.includes(t));
+      });
+      area.innerHTML = matched.map(toCard).join('') || '<p>No results.</p>';
+    }
+    async function load(){
+      const payloads = await Promise.all(sources.map(s=>fetch(s.json).then(r=>r.json())));
+      index = [];
+      payloads.forEach((list,i)=>{
+        const prefix = sources[i].prefix;
+        list.forEach(x=> index.push(Object.assign({}, x, { href: prefix + x.url })) );
+      });
+      const q = document.getElementById('q');
+      q.addEventListener('input', ()=>render(q.value));
+      q.focus();
+    }
+    document.addEventListener('DOMContentLoaded', load);
+  })();
+  </script>
+</body>
+</html>

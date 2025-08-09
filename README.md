@@ -19,3 +19,10 @@ A personal ideas lab blending technical writing, AI‑powered documentation, lea
 2. Add an entry to `data/projects.json`.
 
 No build step required — runs on GitHub Pages. Partials load client‑side via `assets/js/partials.js`. Listings use `assets/js/cards.js`.
+
+## RSS
+- `feed.xml` is a static RSS feed. Update items as you publish, or ask me to wire an automatic generator if you’d like one.
+
+## Search
+- Go to `pages/search.html` for on-site search across posts and projects. It matches on title, summary, and tags using the JSON data in `data/`.
+

@@ -60,9 +60,7 @@ html,body{height:100%}
 body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,Noto Sans,sans-serif;background:var(--bg);color:var(--muted);line-height:1.65}
 
 
-/* Skip link */
-.skip-link{position:absolute;top:-40px;left:10px;background:var(--ink);color:#fff;padding:8px 12px;border-radius:10px;z-index:1000;transition:top .2s ease}
-.skip-link:focus{top:10px}
+/* Skip link removed */
 
 /* Colorful minimal link underline */
 a{color:var(--ink);text-decoration:none;background-image:linear-gradient(transparent,transparent),linear-gradient(90deg,var(--accent),var(--accent-2));background-size:0 2px,100% 2px;background-position:0 100%,0 100%;background-repeat:no-repeat;transition:background-size .3s ease,color .2s ease}
@@ -82,6 +80,17 @@ html[data-theme="dark"] header{background:rgba(15,23,42,.85);box-shadow:0 2px 12
 .nav .btn{padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);cursor:pointer}
 header nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
 .theme-toggle{display:inline-flex;align-items:center;gap:6px;font-weight:700}
+
+/* Added: hamburger toggle */
+.nav-toggle{display:none;margin-left:auto}
+
+@media (max-width: 800px){
+  .nav{align-items:flex-start}
+  .nav-toggle{display:inline-flex}
+  header nav#site-nav{display:none;flex-direction:column;align-items:flex-start;width:100%;padding-top:8px}
+  header nav#site-nav.open{display:flex}
+  .nav .btn{padding:10px 12px}
+}
 
 /* Hero */
 .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#ffffff, #f8fbff)}

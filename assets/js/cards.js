@@ -9,8 +9,10 @@ async function loadCards(jsonPath, containerId, urlPrefix){
       const summary = x.summary || '';
       const date = x.date || '';
       const href = (urlPrefix || '') + x.url;
+      const image = x.image || '';
       return [
         '<article class="card">',
+        image ? ('<img class="thumb" src="' + image + '" alt="' + (x.title || 'Thumbnail') + '">') : '',
         tags ? ('<span class="tag">' + tags + '</span>') : '',
         '<h3><a href="' + href + '">' + x.title + '</a></h3>',
         summary ? ('<p>' + summary + '</p>') : '',

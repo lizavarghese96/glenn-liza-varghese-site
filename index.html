@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glenn Liza Varghese — Writing, Innovation & Ideas in Motion</title>
+  <meta name="description" content="Technical writer exploring AI-powered documentation, design thinking, leadership, and policy. A thinking space with projects, essays, and experiments." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0c10;            /* deep near-black */
+      --panel:#12131a;         /* panel background */
+      --muted:#9aa3b2;         /* body text */
+      --text:#e8eef7;          /* headings */
+      --accent:#ff5a3c;        /* F1 energy */
+      --accent-2:#0ad3c9;      /* innovation teal */
+      --line:#1f2230;          /* dividers */
+      --card:#0f1016;          /* cards */
+      --radius:18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Noto Sans,sans-serif;background:linear-gradient(180deg,var(--bg),#0e1018 50%,#0b0c10);color:var(--muted);line-height:1.6}
+    a{color:var(--accent)}
+    img{max-width:100%;display:block}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:rgba(11,12,16,.75);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--text);letter-spacing:.2px}
+    .logo-dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+    .nav a{color:var(--muted);text-decoration:none;font-weight:600;letter-spacing:.2px}
+    .nav a:hover{color:var(--text)}
+    .nav .btn{padding:10px 14px;border:1px solid var(--line);border-radius:12px}
+
+    /* Hero */
+    .hero{position:relative;overflow:hidden}
+    .hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;min-height:72vh;padding:56px 20px}
+    .kicker{display:inline-flex;align-items:center;gap:10px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.02);font-size:12px;color:var(--muted)}
+    .kicker .ring{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+    h1{color:var(--text);font-size:clamp(28px,4vw,48px);line-height:1.15;margin:14px 0}
+    .hero p{font-size:18px;color:#c8cfdb;max-width:60ch}
+    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+    .cta .primary{background:linear-gradient(135deg,var(--accent),#ff8a00);color:white;border:none;padding:12px 18px;border-radius:14px;font-weight:700;box-shadow:var(--shadow);cursor:pointer}
+    .cta .ghost{background:transparent;border:1px solid var(--line);color:var(--text);padding:12px 18px;border-radius:14px;font-weight:700;cursor:pointer}
+
+    .hero-visual{position:relative}
+    .chip{background:linear-gradient(180deg,#121522,#0b0d15);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--shadow)}
+    .chip + .chip{margin-top:12px}
+    .chip h4{margin:0 0 6px 0;color:var(--text)}
+    .chip p{margin:0;color:var(--muted);font-size:14px}
+
+    /* Section */
+    section{padding:68px 0;border-top:1px solid var(--line)}
+    section h2{color:var(--text);font-size:clamp(22px,3vw,34px);margin:0 0 12px}
+    .lead{color:#c8cfdb;max-width:70ch;margin-bottom:22px}
+
+    /* Featured grid */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+    .card{grid-column:span 4;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .card.large{grid-column:span 8}
+    .card .tag{display:inline-flex;gap:8px;align-items:center;font-size:12px;color:#cbd5e1;border:1px solid var(--line);border-radius:999px;padding:6px 10px;margin-bottom:10px}
+    .card h3{margin:8px 0 8px;color:var(--text);font-size:22px}
+    .card p{margin:0 0 10px}
+    .card .more{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700}
+    .card .rail{position:absolute;right:-40px;top:-40px;width:180px;height:180px;background:radial-gradient(transparent 55%, rgba(255,90,60,.15));transform:rotate(25deg)}
+
+    /* Two-column layout */
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+
+    /* Idea Board */
+    .board{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+    .note{grid-column:span 3;background:var(--card);border:1px dashed #2a2e3f;border-radius:14px;padding:14px}
+    .note h4{margin:0 0 6px;color:#e4ecf7}
+    .note p{margin:0;font-size:14px}
+
+    /* Footer */
+    footer{padding:50px 0;border-top:1px solid var(--line);color:#aab3c2}
+    .foot{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+    .social a{margin-right:10px;color:#cbd5e1;text-decoration:none}
+
+    /* Responsive */
+    @media (max-width: 960px){
+      .hero .wrap{grid-template-columns:1fr;min-height:unset;padding-top:32px}
+      .grid .card{grid-column:span 12}
+      .card.large{grid-column:span 12}
+      .two{grid-template-columns:1fr}
+      .note{grid-column:span 6}
+    }
+    @media (max-width: 560px){
+      .note{grid-column:span 12}
+    }
+
+    /* Animations: scroll reveal */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease}
+    .reveal.show{opacity:1;transform:none}
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none !important;transition:none !important}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="logo"><span class="logo-dot"></span> Glenn Liza Varghese</div>
+      <nav style="display:flex;gap:16px;align-items:center">
+        <a href="#work">Work</a>
+        <a href="#ideas">Ideas</a>
+        <a href="#thinking">Thinking Space</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="btn">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <span class="kicker"><span class="ring"></span> Writing • AI • Leadership</span>
+          <h1>Writing, innovation & ideas in motion.</h1>
+          <p>
+            I’m Glenn — a technical writer exploring how <strong>AI, design thinking, and storytelling</strong> can make complex products easier to understand. This is my <strong>thinking space</strong>: documentation experiments, essays on leadership and policy, and the occasional Formula 1 analogy.
+          </p>
+          <div class="cta">
+            <a class="primary" href="#work">See featured work</a>
+            <a class="ghost" href="#ideas">Read latest ideas</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="chip">
+            <h4>Adaptive Guides</h4>
+            <p>Context-aware help for the right step at the right time.</p>
+          </div>
+          <div class="chip">
+            <h4>Visual Storytelling</h4>
+            <p>Docs that show, not tell — diagrams, flows, and micro-demos.</p>
+          </div>
+          <div class="chip">
+            <h4>F1 x Org Design</h4>
+            <p>How pit wall discipline informs team communication.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED / WORK -->
+    <section id="work">
+      <div class="wrap">
+        <h2 class="reveal">Featured work</h2>
+        <p class="lead reveal">Curated documentation, learning experiences, and AI-flavored prototypes. Each project includes a short narrative: problem → approach → impact → reflection.</p>
+        <div class="grid">
+          <article class="card large reveal">
+            <div class="rail"></div>
+            <span class="tag">Documentation • Education</span>
+            <h3>Curated Customs Documentation (Educational Approach)</h3>
+            <p>Designed learning-oriented documentation for complex logistics flows. Simplified concepts with scenarios, visuals, and stepwise walkthroughs.</p>
+            <a class="more" href="#">Open case study →</a>
+          </article>
+          <article class="card reveal">
+            <span class="tag">AI • Prototype</span>
+            <h3>Dynamic Help System</h3>
+            <p>A lightweight prototype that adapts help content based on user intent and UI signals.</p>
+            <a class="more" href="#">View prototype →</a>
+          </article>
+          <article class="card reveal">
+            <span class="tag">Video • Workshops</span>
+            <h3>Training for New Contributors</h3>
+            <p>Hands-on onboarding for Markdown, GitHub, and DocFX with short videos and interactive exercises.</p>
+            <a class="more" href="#">See materials →</a>
+          </article>
+          <article class="card reveal">
+            <span class="tag">Design • Systems</span>
+            <h3>Docs as Code Playbook</h3>
+            <p>Process patterns, templates, and style decisions for scalable content ops.</p>
+            <a class="more" href="#">Read playbook →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- IDEAS / BLOG -->
+    <section id="ideas">
+      <div class="wrap">
+        <h2 class="reveal">Ideas & insights</h2>
+        <p class="lead reveal">Short notes and essays across AI in communication, leadership & policy, design thinking, and Formula 1 as a lens on teamwork.</p>
+        <div class="grid">
+          <article class="card reveal">
+            <span class="tag">Essay</span>
+            <h3>From Static Docs to Living Systems</h3>
+            <p>What it takes to move from static manuals to adaptive, context-aware guidance.</p>
+            <a class="more" href="#">Read →</a>
+          </article>
+          <article class="card reveal">
+            <span class="tag">Note</span>
+            <h3>Why F1 Radio Works</h3>
+            <p>Discipline, brevity, and shared mental models for high-velocity teams.</p>
+            <a class="more" href="#">Read →</a>
+          </article>
+          <article class="card reveal">
+            <span class="tag">Policy</span>
+            <h3>Decision Rights in Product Teams</h3>
+            <p>Clarifying ownership to reduce churn and increase velocity.</p>
+            <a class="more" href="#">Read →</a>
+          </article>
+          <article class="card reveal">
+            <span class="tag">Design</span>
+            <h3>Show, Then Tell</h3>
+            <p>Visual-first documentation patterns that lower cognitive load.</p>
+            <a class="more" href="#">Read →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- THINKING SPACE -->
+    <section id="thinking">
+      <div class="wrap">
+        <h2 class="reveal">Thinking space</h2>
+        <p class="lead reveal">An evolving board of hunches, sketches, and to‑test ideas. Expect rough edges. That’s the point.</p>
+        <div class="board">
+          <div class="note reveal">
+            <h4>Adaptive pathing</h4>
+            <p>Branching guides that react to user signals (role, history, errors).</p>
+          </div>
+          <div class="note reveal">
+            <h4>Diagram‑first docs</h4>
+            <p>Start with systems maps; generate prose from annotated nodes.</p>
+          </div>
+          <div class="note reveal">
+            <h4>Policy → Practice</h4>
+            <p>Translate governance principles into contributor checklists.</p>
+          </div>
+          <div class="note reveal">
+            <h4>F1 comms toolkit</h4>
+            <p>Radio brevity rules applied to incident response playbooks.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT / CONTACT -->
+    <section id="about">
+      <div class="wrap two">
+        <div class="reveal">
+          <h2>About Glenn</h2>
+          <p>
+            Technical writer and documentation strategist. I curate educational content, coach contributors, and prototype better ways to learn complex software. I care about clarity, humane design, and making knowledge move at the pace of teams.
+          </p>
+          <p>
+            Interests include leadership development, public policy, and the mechanics of decision‑making in organizations. Also: an unabashed Formula 1 fan.
+          </p>
+        </div>
+        <div class="reveal">
+          <h2>Now</h2>
+          <ul>
+            <li>Building AI‑assisted documentation experiments</li>
+            <li>Writing short essays on communication and policy</li>
+            <li>Designing learning experiences for new contributors</li>
+          </ul>
+          <p style="margin-top:10px;color:#cbd5e1">Open to collaborations, guest posts, and workshops.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap two">
+        <div class="reveal">
+          <h2>Contact</h2>
+          <p>Say hello for collaborations, writing, or speaking.</p>
+          <p><a href="mailto:glenn@example.com">glenn@example.com</a> • <a target="_blank" rel="noopener" href="https://www.linkedin.com/">LinkedIn</a> • <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a></p>
+        </div>
+        <form class="reveal" onsubmit="event.preventDefault(); alert('Thanks! This demo form is static on GitHub Pages. Connect a form backend to make it live.');" style="background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)">
+          <label>Name<br><input required type="text" style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--line);background:#10121a;color:var(--text)"></label>
+          <br><br>
+          <label>Email<br><input required type="email" style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--line);background:#10121a;color:var(--text)"></label>
+          <br><br>
+          <label>Message<br><textarea required rows="4" style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--line);background:#10121a;color:var(--text)"></textarea></label>
+          <br><br>
+          <button class="primary" type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>© <span id="year"></span> Glenn Liza Varghese</div>
+      <div class="social">
+        <a href="#">RSS</a>
+        <a href="#">Newsletter</a>
+        <a href="#">Colophon</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // smooth scroll for same-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    // scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+          io.unobserve(entry.target);
+        }
+      })
+    },{threshold:.12});
+    revealEls.forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>

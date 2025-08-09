@@ -35,10 +35,34 @@
     window.__partials.rewriteBaseHrefs(document);
   }
 
+  function headerElevateOnScroll(){
+    var header = document.querySelector('header');
+    if(!header) return;
+    var last = 0;
+    window.addEventListener('scroll', function(){
+      var y = window.scrollY || document.documentElement.scrollTop;
+      header.style.boxShadow = y > 4 ? '0 6px 18px rgba(17,24,39,.06)' : '0 2px 12px rgba(13,29,54,.04)';
+      last = y;
+    }, { passive:true });
+  }
+
+  function heroParallax(){
+    var chips = document.querySelectorAll('.hero .chip');
+    if(chips.length === 0) return;
+    window.addEventListener('scroll', function(){
+      var y = window.scrollY || document.documentElement.scrollTop;
+      chips.forEach(function(ch, i){
+        ch.style.transform = 'translateY(' + Math.min(20, y * (0.02 + i*0.01)) + 'px)';
+      });
+    }, { passive:true });
+  }
+
   window.initSite = function(){
     setYear();
     prefixInternalLinks();
     enableSmoothScroll();
     initReveal();
+    headerElevateOnScroll();
+    heroParallax();
   };
 })();

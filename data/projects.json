@@ -5,5 +5,26 @@
     "tags": ["ai","prototype"],
     "url": "projects/dynamic-help.html",
     "summary": "A prototype that adapts help content by intent and UI signals."
+  },
+  {
+    "title": "Technical Documentation Portfolio",
+    "date": "2025-08-09",
+    "tags": ["docs","portfolio"],
+    "url": "projects/tech-docs-portfolio.html",
+    "summary": "Selected API guides, onboarding flows, and docs-as-code systems."
+  },
+  {
+    "title": "Training for New Contributors",
+    "date": "2025-08-09",
+    "tags": ["workshop","video"],
+    "url": "projects/training-contributors.html",
+    "summary": "Onboarding materials for GitHub, Markdown, and DocFX."
+  },
+  {
+    "title": "Docs as Code Playbook",
+    "date": "2025-08-09",
+    "tags": ["design","systems"],
+    "url": "projects/docs-as-code-playbook.html",
+    "summary": "Patterns and decisions for scalable content operations."
   }
 ]

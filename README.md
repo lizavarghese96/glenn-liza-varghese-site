@@ -27,7 +27,7 @@ No build step required — runs on GitHub Pages. Partials load client‑side via
 - Go to `pages/search.html` for on-site search across posts and projects. It matches on title, summary, and tags using the JSON data in `data/`.
 
 ## Features
-- Dark / Light / Brutalist themes: use the header toggle (cycles light → dark → brutalist). Persisted in `localStorage`.
+- Dark / Light themes: use the header toggle (light ↔ dark). Persisted in `localStorage`.
 - Snap scrolling: use the “Snap Scroll” button in the footer to toggle scroll-snap sections. Persisted in `localStorage`.
 - Accessibility: skip link, focus-visible styles, high-contrast modes, reduced-motion support, lazy-loading images.
 - Micro-interactions: subtle 3D tilt on cards.

@@ -47,14 +47,14 @@
     if(!btn) return;
     var current = document.documentElement.getAttribute('data-theme');
     var isDark = current ? current === 'dark' : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    btn.textContent = (current === 'brutalist') ? '🧱' : (isDark ? '☀️' : '🌙');
-    btn.setAttribute('aria-pressed', String(isDark || current === 'brutalist'));
-    btn.title = (current === 'brutalist') ? 'Switch to light mode' : (isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    btn.textContent = isDark ? '☀️' : '🌙';
+    btn.setAttribute('aria-pressed', String(isDark));
+    btn.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
   }
   function applyThemeFromStorage(){
     var t = getStoredTheme();
     var html = document.documentElement;
-    if(t === 'dark' || t === 'light' || t === 'brutalist'){
+    if(t === 'dark' || t === 'light'){
       html.setAttribute('data-theme', t);
     }else{
       html.removeAttribute('data-theme');
@@ -64,7 +64,7 @@
   function toggleTheme(){
     var html = document.documentElement;
     var current = html.getAttribute('data-theme') || 'light';
-    var next = (current === 'light') ? 'dark' : (current === 'dark' ? 'brutalist' : 'light');
+    var next = (current === 'light') ? 'dark' : 'light';
     html.setAttribute('data-theme', next);
     setStoredTheme(next);
     updateThemeToggleIcon();
@@ -205,18 +205,7 @@
     });
   }
 
-  function initBrutalistToggle(){
-    var btn = document.getElementById('toggle-brutalist');
-    if(!btn) return;
-    btn.addEventListener('click', function(){
-      var html = document.documentElement;
-      var current = html.getAttribute('data-theme') || 'light';
-      var next = current === 'brutalist' ? 'light' : 'brutalist';
-      html.setAttribute('data-theme', next);
-      setStoredTheme(next);
-      updateThemeToggleIcon();
-    });
-  }
+
 
   // Ethical/sustainable: lazy-load images and add width/height if missing (best-effort)
   function enhanceImages(){
@@ -237,7 +226,7 @@
     ensureChatbot();
     applyScrollModeFromStorage();
     initScrollToggle();
-    initBrutalistToggle();
+
     enhanceImages();
   };
 })();

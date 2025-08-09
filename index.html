@@ -11,14 +11,14 @@
   <meta property="og:description" content="A personal ideas lab blending technical writing, AI-powered documentation, leadership insights, and Formula 1-inspired thinking — built as a modern, scroll-animated site." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://lizavarghese96.github.io/glenn-liza-varghese-site/" />
-  <meta property="og:image" content="https://lizavargese96.github.io/glenn-liza-varghese-site/assets/img/preview.png" />
+  <meta property="og:image" content="https://lizavarghese96.github.io/glenn-liza-varghese-site/assets/img/preview.png" />
 
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Glenn Liza Varghese — Writing, Innovation & Ideas in Motion" />
   <meta name="twitter:description" content="A personal ideas lab blending technical writing, AI-powered documentation, leadership insights, and Formula 1-inspired thinking — built as a modern, scroll-animated site." />
-  <meta name="twitter:image" content="https://lizavargese96.github.io/glenn-liza-varghese-site/assets/img/preview.png" />
+  <meta name="twitter:image" content="https://lizavarghese96.github.io/glenn-liza-varghese-site/assets/img/preview.png" />
   <link rel="canonical" href="https://lizavarghese96.github.io/glenn-liza-varghese-site/" />
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,29 +26,7 @@
   <link rel="stylesheet" href="assets/css/site.css" />
 </head>
 <body>
-  <header>
-    <div class="wrap nav">
-      <div class="logo"><span class="logo-dot"></span> Glenn Liza Varghese</div>
-      <nav style="display:flex;gap:16px;align-items:center">
-        <a href="#work">Work</a>
-        <a href="#ideas">Ideas</a>
-        <a href="#thinking">Thinking Space</a>
-        <a href="#about">About</a>
-        <a href="#newsletter" class="btn">Newsletter</a>
-        <a href="#contact" class="btn">Contact</a>
-      </nav>
-    </div>
-    <div class="wrap">
-      <div class="topic-bar">
-        <a href="#ideas">Writing</a>
-        <a href="#ideas">AI</a>
-        <a href="#ideas">Leadership</a>
-        <a href="#ideas">Policy</a>
-        <a href="#ideas">Design</a>
-        <a href="#ideas">F1</a>
-      </div>
-    </div>
-  </header>
+  <div data-include="partials/header.html"></div>
 
   <main>
     <!-- HERO -->
@@ -66,7 +44,7 @@
           </div>
         </div>
         <div class="hero-visual reveal">
-          <img class="portrait" src="assets/profile.jpg" alt="Portrait of Glenn Liza Varghese">
+                     <img class="portrait" src="assets/img/preview.png" alt="Portrait of Glenn Liza Varghese">
           <div class="chip">
             <h4>Adaptive Guides</h4>
             <p>Context-aware help for the right step at the right time.</p>
@@ -249,33 +227,10 @@
     </section>
   </main>
 
-  <footer>
-    <div class="wrap foot">
-      <div>© <span id="year"></span> Glenn Liza Varghese</div>
-      <div class="social">
-        <a href="#">RSS</a>
-        <a href="#newsletter">Newsletter</a>
-        <a href="#">Colophon</a>
-      </div>
-    </div>
-  </footer>
+  <div data-include="partials/footer.html"></div>
+  <script src="assets/js/partials.js"></script>
   <script src="assets/js/site.js"></script>
-  <script>
-// simple loader for listing pages
-async function loadCards(jsonPath, containerId, urlPrefix = "") {
-  const res = await fetch(jsonPath);
-  const items = await res.json();
-  const el = document.getElementById(containerId);
-  el.innerHTML = items.map(x => `
-    <article class="card">
-      <span class="tag">${(x.tags||[]).join(" • ")}</span>
-      <h3><a href="${urlPrefix + x.url}">${x.title}</a></h3>
-      <p>${x.summary || ""}</p>
-      <small>${x.date || ""}</small>
-    </article>
-  `).join("");
-}
-</script>
+  <script src="assets/js/cards.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,9 @@
+[
+  {
+    "title": "Dynamic Help System",
+    "date": "2025-08-09",
+    "tags": ["ai","prototype"],
+    "url": "projects/dynamic-help.html",
+    "summary": "A prototype that adapts help content by intent and UI signals."
+  }
+]

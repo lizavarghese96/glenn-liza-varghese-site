@@ -131,12 +131,13 @@
       '    <input id="chat-input" type="text" placeholder="Ask anything..." autocomplete="off" required />',
       '    <button type="submit">Send</button>',
       '  </form>',
-      '  <div class="chat-note">AI responses are generated; verify important info.</div>',
+      '  <div class="chat-note">AI responses are generated; verify important info. <a data-href="pages/privacy.html">Privacy</a></div>',
       '</div>'
     ].join('');
 
     document.body.appendChild(launcher);
     document.body.appendChild(panel);
+    if(window.__partials){ try{ window.__partials.rewriteBaseHrefs(panel); }catch(e){} }
 
     function showPanel(){ panel.style.display = 'flex'; launcher.setAttribute('aria-expanded', 'true'); document.getElementById('chat-input').focus(); }
     function hidePanel(){ panel.style.display = 'none'; launcher.setAttribute('aria-expanded', 'false'); }

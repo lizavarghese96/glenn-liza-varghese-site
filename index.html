@@ -10,17 +10,18 @@
   <meta property="og:title" content="Glenn Liza Varghese — Writing, Innovation & Ideas in Motion" />
   <meta property="og:description" content="A personal ideas lab blending technical writing, AI-powered documentation, leadership insights, and Formula 1-inspired thinking — built as a modern, scroll-animated site." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://lizavargese96.github.io/glenn-liza-varghese-site/" />
-  <meta property="og:image" content="https://lizavargese96.github.io/glenn-liza-varghese-site/preview.png" />
+  <meta property="og:url" content="https://lizavarghese96.github.io/glenn-liza-varghese-site/" />
+  <meta property="og:image" content="https://lizavarghese96.github.io/glenn-liza-varghese-site/preview.png" />
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Glenn Liza Varghese — Writing, Innovation & Ideas in Motion" />
   <meta name="twitter:description" content="A personal ideas lab blending technical writing, AI-powered documentation, leadership insights, and Formula 1-inspired thinking — built as a modern, scroll-animated site." />
-  <meta name="twitter:image" content="https://lizavargese96.github.io/glenn-liza-varghese-site/preview.png" />
+  <meta name="twitter:image" content="https://lizavarghese96.github.io/glenn-liza-varghese-site/preview.png" />
+  <link rel="canonical" href="https://lizavarghese96.github.io/glenn-liza-varghese-site/" />
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
   <style>
     :root{
       /* Light, bright palette inspired by GatesNotes */
@@ -122,6 +123,33 @@
       *{animation:none !important;transition:none !important}
       .reveal{opacity:1;transform:none}
     }
+    
+    /* Editorial touches */
+    h1, h2, h3{font-family:'Source Serif 4', Georgia, serif}
+
+    /* Topic bar */
+    .topic-bar{display:flex;flex-wrap:wrap;gap:10px;padding:10px 0 14px}
+    .topic-bar a{color:var(--subtle);text-decoration:none;font-weight:700;border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:#fff}
+    .topic-bar a:hover{color:var(--ink);border-color:#dfe7ef}
+
+    /* Cards with images */
+    .card{transition:transform .2s ease, box-shadow .2s ease}
+    .card:hover{transform:translateY(-2px); box-shadow:0 12px 30px rgba(13,29,54,.10)}
+    .card .thumb{width:100%;height:180px;object-fit:cover;border-radius:12px;margin:-4px 0 12px;display:block}
+    .card.large .thumb{height:260px}
+
+    /* Hero portrait */
+    .portrait{width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:var(--shadow);margin-bottom:12px}
+
+    /* Newsletter */
+    .newsletter .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+    .newsletter .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .newsletter input[type="email"]{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink)}
+    .newsletter .primary{margin-left:8px}
+
+    @media (max-width: 960px){
+      .newsletter .wrap{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
@@ -133,8 +161,19 @@
         <a href="#ideas">Ideas</a>
         <a href="#thinking">Thinking Space</a>
         <a href="#about">About</a>
+        <a href="#newsletter" class="btn">Newsletter</a>
         <a href="#contact" class="btn">Contact</a>
       </nav>
+    </div>
+    <div class="wrap">
+      <div class="topic-bar">
+        <a href="#ideas">Writing</a>
+        <a href="#ideas">AI</a>
+        <a href="#ideas">Leadership</a>
+        <a href="#ideas">Policy</a>
+        <a href="#ideas">Design</a>
+        <a href="#ideas">F1</a>
+      </div>
     </div>
   </header>
 
@@ -154,6 +193,7 @@
           </div>
         </div>
         <div class="hero-visual reveal">
+          <img class="portrait" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&h=300&fit=facearea&facepad=4&auto=format" alt="Portrait placeholder">
           <div class="chip">
             <h4>Adaptive Guides</h4>
             <p>Context-aware help for the right step at the right time.</p>
@@ -177,6 +217,7 @@
         <p class="lead reveal">Curated documentation, learning experiences, and AI-flavored prototypes. Each project includes a short narrative: problem → approach → impact → reflection.</p>
         <div class="grid">
           <article class="card large reveal">
+            <img class="thumb" src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1200&h=600&fit=crop&auto=format" alt="Curated customs documentation">
             <div class="rail"></div>
             <span class="tag">Documentation • Education</span>
             <h3>Curated Customs Documentation (Educational Approach)</h3>
@@ -184,18 +225,21 @@
             <a class="more" href="#">Open case study →</a>
           </article>
           <article class="card reveal">
+            <img class="thumb" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=900&h=600&fit=crop&auto=format" alt="Dynamic help system prototype">
             <span class="tag">AI • Prototype</span>
             <h3>Dynamic Help System</h3>
             <p>A lightweight prototype that adapts help content based on user intent and UI signals.</p>
             <a class="more" href="#">View prototype →</a>
           </article>
           <article class="card reveal">
+            <img class="thumb" src="https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=900&h=600&fit=crop&auto=format" alt="Training for new contributors">
             <span class="tag">Video • Workshops</span>
             <h3>Training for New Contributors</h3>
             <p>Hands-on onboarding for Markdown, GitHub, and DocFX with short videos and interactive exercises.</p>
             <a class="more" href="#">See materials →</a>
           </article>
           <article class="card reveal">
+            <img class="thumb" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=900&h=600&fit=crop&auto=format" alt="Docs as code playbook">
             <span class="tag">Design • Systems</span>
             <h3>Docs as Code Playbook</h3>
             <p>Process patterns, templates, and style decisions for scalable content ops.</p>
@@ -212,24 +256,28 @@
         <p class="lead reveal">Short notes and essays across AI in communication, leadership & policy, design thinking, and Formula 1 as a lens on teamwork.</p>
         <div class="grid">
           <article class="card reveal">
+            <img class="thumb" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=900&h=600&fit=crop&auto=format" alt="From static docs to living systems">
             <span class="tag">Essay</span>
             <h3>From Static Docs to Living Systems</h3>
             <p>What it takes to move from static manuals to adaptive, context-aware guidance.</p>
             <a class="more" href="#">Read →</a>
           </article>
           <article class="card reveal">
+            <img class="thumb" src="https://images.unsplash.com/photo-1542365887-76fc2a5d602b?q=80&w=900&h=600&fit=crop&auto=format" alt="Why F1 radio works">
             <span class="tag">Note</span>
             <h3>Why F1 Radio Works</h3>
             <p>Discipline, brevity, and shared mental models for high-velocity teams.</p>
             <a class="more" href="#">Read →</a>
           </article>
           <article class="card reveal">
+            <img class="thumb" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=900&h=600&fit=crop&auto=format" alt="Decision rights in product teams">
             <span class="tag">Policy</span>
             <h3>Decision Rights in Product Teams</h3>
             <p>Clarifying ownership to reduce churn and increase velocity.</p>
             <a class="more" href="#">Read →</a>
           </article>
           <article class="card reveal">
+            <img class="thumb" src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=900&h=600&fit=crop&auto=format" alt="Show, then tell">
             <span class="tag">Design</span>
             <h3>Show, Then Tell</h3>
             <p>Visual-first documentation patterns that lower cognitive load.</p>
@@ -305,6 +353,25 @@
           <br><br>
           <button class="primary" type="submit" style="background:var(--accent);color:#fff;border:none;padding:12px 18px;border-radius:14px;font-weight:800;cursor:pointer">Send</button>
         </form>
+      </div>
+        </section>
+
+    <section id="newsletter" class="alt newsletter">
+      <div class="wrap">
+        <div>
+          <h2>Get new posts in your inbox</h2>
+          <p class="lead">Occasional notes on writing, AI in communication, and leadership. No spam. Unsubscribe anytime.</p>
+          <div class="panel">
+            <form onsubmit="event.preventDefault(); alert('Thanks! Connect a newsletter provider to make this live on GitHub Pages.');" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+              <input type="email" required placeholder="you@example.com" aria-label="Email address">
+              <button class="primary" type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div>
+          <div class="chip"><h4>What to expect</h4><p>1–2 emails/month with essays, experiments, and curated links.</p></div>
+          <div class="chip"><h4>Privacy</h4><p>Used only for updates. Your email is never shared.</p></div>
+        </div>
       </div>
     </section>
   </main>
